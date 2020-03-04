@@ -15,8 +15,6 @@
 ## groupテーブル
 |Column|Type|Options|
 |------|----|-------|
-||string|null: false|
-|password|string|null: false|
 |nickname|string|null: false|
 
 ### Association
