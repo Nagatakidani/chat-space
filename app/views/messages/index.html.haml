@@ -1,0 +1,58 @@
+.wrapper
+
+ .side-chat
+  .side-chat__header
+   .side-chat__header__top-items
+    %p.side-chat__header__top-items__name TESTname
+    %ul.side-chat__header__top-items__icons
+     %li.side-chat__header__top-items__icons__color
+     %li.side-chat__header__top-items__icons__grp-create
+      = link_to "#",class:"side-chat__header__top-items__icons__color" do
+       = icon('fas','edit')
+     %li.side-chat__header__top-items__icons__edit
+      = link_to "#",class:"side-chat__header__top-items__icons__color" do
+       = icon('fas','cog')
+
+  .side-chat__groups
+   .side-chat__groups__group
+    = link_to "#",class:"side-chat__groups__group" do
+     .side-chat__groups__group__color
+    %p.side-chat__groups__group__name GRPname
+    %p.side-chat__groups__group__latestname name
+
+    .side-chat__groups__group
+    = link_to "#",class:"side-chat__groups__group" do
+     .side-chat__groups__group__color
+    %p.side-chat__groups__group__name GRPname
+    %p.side-chat__groups__group__latestname name
+
+    .side-chat__groups__group
+    = link_to "#",class:"side-chat__groups__group" do
+     .side-chat__groups__group__color
+    %p.side-chat__groups__group__name GRPname
+    %p.side-chat__groups__group__latestname name
+    
+
+
+ .main-chat
+  .main-chat__top-info
+   .main-chat__top-info__leftbox
+    .main-chat__top-info__leftbox__txt
+     TESTclass
+    %p.main-chat__top-info__leftbox__bottom-name
+     Member:test01
+   .main-chat__top-info__edit
+    = link_to "#",class:"main-chat__top-info__color" do
+     EDIT
+    %a.main-chat__top-info__edit__color
+  .main-chat__massages
+  .main-chat__form
+   .main-chat__form__box
+    .main-chat__form__box__in-messe
+     %p type a message
+    .main-chat__form__box__image
+     %label{class: "main-chat__form__box__image"}
+      = icon('fas', 'image')
+      %input{type: "file"}
+    .main-chat__form__box__send
+     SEND
