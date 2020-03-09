@@ -3,14 +3,14 @@
  .side-chat
   .side-chat__header
    .side-chat__header__top-items
-    %p.side-chat__header__top-items__name TESTname
+    %p.side-chat__header__top-items__name Testname
     %ul.side-chat__header__top-items__icons
      %li.side-chat__header__top-items__icons__color
      %li.side-chat__header__top-items__icons__grp-create
       = link_to "#",class:"side-chat__header__top-items__icons__color" do
        = icon('fas','edit')
      %li.side-chat__header__top-items__icons__edit
-      = link_to "#",class:"side-chat__header__top-items__icons__color" do
+      = link_to edit_user_path(current_user),class:"side-chat__header__top-items__icons__color" do
        = icon('fas','cog')
 
   .side-chat__groups
