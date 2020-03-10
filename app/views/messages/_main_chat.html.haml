@@ -1,0 +1,20 @@
+.main-chat
+  .main-chat__top-info
+    .main-chat__top-info__leftbox
+      .main-chat__top-info__leftbox__txt
+        TESTclass
+      %p.main-chat__top-info__leftbox__bottom-name
+        Member:test01
+    .main-chat__top-info__edit
+      = link_to "#",class:"main-chat__top-info__color" do
+        EDIT
+      %a.main-chat__top-info__edit__color
+  .main-chat__massages
+  .main-chat__form
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+    = f.submit 'Send', class: 'form__submit'
