@@ -1,27 +1,21 @@
 .side-chat
- .side-chat__header
-  %h3.side-chat__header__top-items__name
-   = current_user.name
-  %ul.side-chat__header__top-items__icons
-   %li.side-chat__header__top-items__icons__grp-create
-    = link_to do
-     = icon('fas', 'pen-square', class: 'icon')
-   %li.side-chat__header__top-items__icons__edit
-    = link_to edit_user_path(current_user) do
-     = icon('fas', 'cog', class: 'icon')
- .side-chat__groups
-  .side-chat__groups__group
-   .side-chat__groups__group__name
-    グループ名
-    .side-chat__groups__group__latestname
-    新着メッセージ
-    .side-chat__groups__group
-     .side-chat__groups__group__name
-      グループ名
-      .side-chat__groups__group__latestname
-        新着メッセージ
-    .side-chat__groups__group
-     .side-chat__groups__group__name
-      グループ名
-     .side-chat__groups__group__latestname
-      新着メッセージ
+  .side-chat__header
+    .side-chat__header__top-items
+      %h3.side-chat__header__top-items__name
+        = current_user.name
+      %ul.side-chat__header__top-items__icons
+        %li.side-chat__header__top-items__icons__color
+        %li.side-chat__header__top-items__icons__grp-create
+          = link_to new_group_path ,class:"side-chat__header__top-items__icons__color" do
+            = icon('fas', 'edit', class: 'icon')
+        %li.side-chat__header__top-items__icons__edit
+          = link_to edit_user_path(current_user) ,class:"side-chat__header__top-items__icons__color" do
+            = icon('fas', 'cog', class: 'icon')
+  .side-chat__groups
+    - current_user.groups.each do |group|
+      .side-chat__groups__group
+        = link_to '#' ,class:"side-chat__groups__group" do
+          %p.side-chat__groups__group__name
+            = group.name
+          %p.side-chat__groups__group__latestname
+            メッセージはまだありません
