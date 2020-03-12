@@ -1,0 +1,37 @@
+.main-chat
+  .main-chat__top-info
+    .main-chat__top-info__leftbox
+      .main-chat__top-info__leftbox__txt
+        = @group.name
+      %p.main-chat__top-info__leftbox__bottom-name
+        - @group.users.each do |user|
+          %span.chat-header__user #{user.name}
+    .main-chat__top-info__edit
+      = link_to "edit",class:"main-chat__top-info__color" do
+        EDIT
+      %a.main-chat__top-info__edit__color
+  .main-chat__massages
+    = render @messages
+  .main-chat__form
+    .main-chat__form__box
+      .main-chat__form__box__chat
+        = form_for [@group, @message] do |f|
+          = f.text_field :content, class: 'main-chat__form__box__chat__txt', placeholder: 'type a message'
+          .main-chat__form__box__image
+            = f.label :image do
+              = icon('fas', 'image', class: 'icon')
+              = f.file_field :image, class: 'hidden'
+          = f.submit 'SEND', class: 'main-chat__form__box__chat__send'
+
+
+
+-# .main-chat__form
+-#    .main-chat__form__box
+-#     .main-chat__form__box__in-messe
+-#      %p type a message
+-#     .main-chat__form__box__image
+-#      %label{class: "main-chat__form__box__image"}
+-#       = icon('fas', 'image')
+-#       %input{type: "file"}
+-#     .main-chat__form__box__send
+-#      SEND
