@@ -51,14 +51,14 @@ $(function(){
       processData: false,
       contentType: false
     })
+      .always(function(data){
+        $('input').prop('disabled', false);
+      })
       .done(function(data){
         var html = buildHTML(data);
         $('.main-chat__massages').append(html);
         $('.main-chat__massages').animate({ scrollTop: $('.main-chat__massages')[0].scrollHeight});
         $('form')[0].reset();
-      .always(function(data){
-        $('input').prop('disabled', false);
-      })
       })
       .fail(function() {
         alert("メッセージ送信失敗");
