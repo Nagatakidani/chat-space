@@ -51,7 +51,7 @@ $(function(){
       processData: false,
       contentType: false
     })
-      .done(function(data){
+      .always(function(data){
         var html = buildHTML(data);
         $('.main-chat__massages').append(html);
         $('.main-chat__massages').animate({ scrollTop: $('.main-chat__massages')[0].scrollHeight});
