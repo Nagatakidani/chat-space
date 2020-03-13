@@ -8,6 +8,7 @@
     background-color: #fafafa;
     padding: 46px 40px;
     height: calc(100vh - 282px);
+    overflow: scroll;
   }
   &__top-info {
     display: flex;
