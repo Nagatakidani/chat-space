@@ -8,6 +8,7 @@
     background-color: #fafafa;
     padding: 46px 40px;
     height: calc(100vh - 282px);
+    overflow: scroll;
   }
   &__top-info {
     display: flex;
@@ -84,23 +85,7 @@
       display: none;
     }
   }
-  // &__form__box__in-messe {
-  //   display: flex;
-  //   background-color: #ffffff;
-  //   height: 50px;
-  //   width: 100%;
-  //   padding: 0 10px;
-  //   line-height: 50px;
-  //   color: #434a54;
-  //   position: relative;
-  //   border: none;
-  // }
-  // &__form__box__messebox {
-  //   height: 50px;
-  //   width: 100%;
-  //   padding: 0 10px;
-  // }
-  }
+}
 
 .side-chat {
   float: left;
