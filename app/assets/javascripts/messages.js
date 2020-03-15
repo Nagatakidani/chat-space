@@ -1,6 +1,6 @@
 $(function(){
   function buildHTML (message) {
-    if ( message.image ) {
+    if (message.content && message.image) {
       var html =
         `<div class="message" data-message-id=${message.id}>
           <div class="message__upper-message">
@@ -19,7 +19,7 @@ $(function(){
           <img src=${message.image} >
         </div>`
       return html;
-    } else {
+    } else if (message.content) {
       var html =
         `<div class="message" data-message-id=${message.id}>
           <div class="message__upper-message">
@@ -36,6 +36,21 @@ $(function(){
             </p>
           </div>
         </div>`
+        return html;
+    } else if  (message.image) {
+      var html =
+        `<div class="message" data-message-id=${message.id}>
+          <div class="message__upper-message">
+            <p class="message__upper-message__talker">
+              ${message.user_name}
+            </p>
+            <p class="message__upper-message__time">
+              ${message.created_at}
+            </p>
+          </div>
+          <div class="message__lower-message">
+          <img src=${message.image} >
+        </div>`
       return html;
     };
   }
@@ -51,7 +66,7 @@ $(function(){
       processData: false,
       contentType: false
     })
-      .always(function(data){
+      .always(function(){
         $('input').prop('disabled', false);
       })
       .done(function(data){
@@ -63,5 +78,34 @@ $(function(){
       .fail(function() {
         alert("メッセージ送信失敗");
       });
+  });
+
+  var reloadMessages = function() {
+    var last_message_id = $('.message:last').data("message-id");
+    console.log(last_message_id)
+    $.ajax({
+  url: "api/messages",
+  type: 'get',
+  dataType: 'json',
+  data: {id: last_message_id}
   })
+  .done(function(messages) {
+    console.log(messages)
+    if (messages.length !== 0) {
+      var insertHTML = '';
+      $.each(messages, function(i, message) {
+        insertHTML += buildHTML(message)
+      });
+      $('.main-chat__massages').append(insertHTML);
+      $('.main-chat__massages').animate({ scrollTop: $('.main-chat__massages')[0].scrollHeight});
+    }
+  })
+  .fail(function() {
+    alert('error');
+  });
+};
+if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+  setInterval(reloadMessages, 1500);
+}
+
 });
