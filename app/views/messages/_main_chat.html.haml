@@ -4,7 +4,7 @@
       .main-chat__top-info__leftbox__txt
         = @group.name
       %p.main-chat__top-info__leftbox__bottom-name
-        Member:
+        Member :
         - @group.users.each do |user|
           %span.chat-header__user #{user.name}
     .main-chat__top-info__edit
