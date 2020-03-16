@@ -4,6 +4,7 @@
       .main-chat__top-info__leftbox__txt
         = @group.name
       %p.main-chat__top-info__leftbox__bottom-name
+        Member:
         - @group.users.each do |user|
           %span.chat-header__user #{user.name}
     .main-chat__top-info__edit
@@ -21,4 +22,4 @@
             = f.label :image do
               = icon('fas', 'image', class: 'icon')
               = f.file_field :image, class: 'hidden'
-          = f.submit 'SENd', class: 'main-chat__form__box__chat__send'
+          = f.submit 'SEND', class: 'main-chat__form__box__chat__send'
